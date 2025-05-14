@@ -83,12 +83,13 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:gfrEcNbpEDNHiebrZUKRVxoxvECDAonY@ballast.proxy.rlwy.net:22107/railway',
+        default='postgresql://postgres:QzMnNEUaMGMTItqqCxoTAWNKmjbavfWa@switchback.proxy.rlwy.net:40680/railway',
         conn_max_age=600,
         conn_health_checks=True,
         ssl_require=True  # Включение SSL
     )
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -117,9 +118,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
