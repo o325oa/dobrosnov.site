@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from .utils import compress_image
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название')
@@ -41,6 +42,11 @@ class Product(models.Model):
     
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'product_id': self.id})
+    
+    def save(self, *args, **kwargs):
+        if self.image and (not self.pk or Product.objects.get(pk=self.pk).image != self.image):
+            self.image = compress_image(self.image)
+        super().save(*args, **kwargs)
 
 class ProductReview(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
