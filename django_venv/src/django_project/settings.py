@@ -82,12 +82,10 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://dobrosnov_db_user:r3qxhJXIjOsS28hnuXXzDK5Vr5hdZBHi@dpg-d14i9ch5pdvs73f75qmg-a/dobrosnov_db',
-        conn_max_age=600,
-        conn_health_checks=True,
-        ssl_require=True  # SSL включён
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Файл БД будет в корне проекта
+    }
 }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
