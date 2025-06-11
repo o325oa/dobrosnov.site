@@ -83,7 +83,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://dobrosnov_db_user:r3qxhJXIjOsS28hnuXXzDK5Vr5hdZBHi@dpg-d14i9ch5pdvs73f75qmg-a:5432/dobrosnov_db',
+        default='postgresql://dobrosnov_db_user:r3qxhJXIjOsS28hnuXXzDK5Vr5hdZBHi@dpg-d14i9ch5pdvs73f75qmg-a/dobrosnov_db',
         conn_max_age=600,
         conn_health_checks=True,
         ssl_require=True  # SSL включён
