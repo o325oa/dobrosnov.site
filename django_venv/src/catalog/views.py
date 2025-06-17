@@ -9,15 +9,9 @@ def home(request):
 
 
 def catalog(request):
-    category_id = request.GET.get('category')
-    categories = Category.objects.all()
     products = Product.objects.all()
-    if category_id:
-        products = products.filter(category_id=category_id)
     return render(request, 'catalog/catalog.html', {
-        'products': products,
-        'categories': categories,
-        'selected_category': category_id
+        'products': products
     })
 
 def about(request):

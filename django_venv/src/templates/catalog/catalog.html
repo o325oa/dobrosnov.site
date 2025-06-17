@@ -7,19 +7,6 @@
 <section class="catalog">
     <h1>Каталог мебели</h1>
     
-    <div class="catalog-filter">
-        <form method="get">
-            <select name="category" onchange="this.form.submit()">
-                <option value="">Все категории</option>
-                {% for category in categories %}
-                <option value="{{ category.id }}" {% if selected_category == category.id|stringformat:"s" %}selected{% endif %}>
-                    {{ category.name }}
-                </option>
-                {% endfor %}
-            </select>
-        </form>
-    </div>
-    
     <div class="products-grid">
         {% for product in products %}
         <div class="product-card">

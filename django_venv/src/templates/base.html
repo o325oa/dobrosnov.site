@@ -22,7 +22,14 @@
                 <nav class="navbar">
                     <ul class="nav-menu">
                         <li><a href="{% url 'home' %}">Главная</a></li>
-                        <li><a href="{% url 'catalog' %}">Каталог</a></li>
+                        <li class="dropdown">
+                            <a href="{% url 'catalog' %}" class="dropdown-toggle">Каталог</a>
+                            <ul class="dropdown-menu">
+                                {% for category in categories %}
+                                <li><a href="{% url 'catalog' %}?category={{ category.id }}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
                         <li><a href="{% url 'about' %}">О нас</a></li>
                         <li><a href="{% url 'contacts' %}">Контакты</a></li>
                     </ul>
