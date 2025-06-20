@@ -16,7 +16,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name='Название')
-    # slug = models.SlugField(unique=True, verbose_name='URL', default='default_slug')
+    slug = models.SlugField(unique=True, verbose_name='URL', default='default_slug')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     sku = models.CharField(max_length=50, verbose_name='Артикул', unique=True, default='000000')
     short_description = models.TextField(verbose_name='Краткое описание', default='')
