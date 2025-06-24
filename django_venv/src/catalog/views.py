@@ -9,7 +9,11 @@ def home(request):
 
 
 def catalog(request):
-    products = Product.objects.all()
+    category_id = request.GET.get('category')
+    if category_id:
+        products = Product.objects.filter(category_id=category_id)
+    else:
+        products = Product.objects.all()
     return render(request, 'catalog/catalog.html', {
         'products': products
     })
